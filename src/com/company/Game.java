@@ -31,6 +31,7 @@ public class Game {
         window.add(wizualizacja);
         window.add(menu);
 
+
         window.getContentPane().getComponent(0).setVisible(false);
         window.getContentPane().getComponent(1).setVisible(true);
         //window.setSize(640,480);

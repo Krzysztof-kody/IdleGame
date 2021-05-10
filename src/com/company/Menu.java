@@ -27,7 +27,7 @@ public class Menu extends JPanel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getX()>70 && e.getX()<570)
-            if(e.getY()>90 && e.getX()<390){
+            if(e.getY()>90 && e.getY()<390){
                 game.menu = false;
                 game.wizualizacja = true;
         //        System.out.println("bum");
