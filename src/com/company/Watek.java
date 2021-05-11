@@ -48,6 +48,5 @@ public class Watek extends Thread{
                 e.printStackTrace();
             }
         }
-
     }
 }
