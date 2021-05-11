@@ -8,11 +8,11 @@ import java.awt.event.MouseListener;
 public class Menu extends JPanel implements MouseListener {
 
     ImageIcon btn;
-    Game game;
+    private Game game;
     public Menu(Game game){
         this.game = game;
-        ImageIcon img = new ImageIcon("src/com/company/img/ig.png");
-        btn = img;
+        btn = new ImageIcon("src/main/java/com/company/img/ig.png");
+
         setSize(640, 480);
         addMouseListener(this);
     }
@@ -26,32 +26,30 @@ public class Menu extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getX()>70 && e.getX()<570)
-            if(e.getY()>90 && e.getY()<390){
-                game.menu = false;
-                game.wizualizacja = true;
-        //        System.out.println("bum");
+        if((e.getX()>70 && e.getX()<570)&&(e.getY()>90 && e.getY()<390)){
+                game.setMenuShow(false);
+                game.setWizualizacja(true);
             }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        // to implement
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        // to implement
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        // to implement
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        // to implement
     }
 }
 

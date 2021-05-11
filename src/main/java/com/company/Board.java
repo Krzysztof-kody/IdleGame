@@ -1,27 +1,33 @@
 package com.company;
 
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Board extends JPanel implements MouseListener {
-    public Game game;
-    public JLabel coins = new JLabel();
-    public JLabel[] counts = new JLabel[4];
+    private Game game;
+    private JLabel coins = new JLabel();
+    private JLabel[] counts = new JLabel[4];
     ImageIcon[] icons = new ImageIcon[4];
     Color[] cols = {Color.green, Color.yellow, Color.orange, Color.red};
-
+    public JLabel[] getCounts(){
+        return counts;
+    }
     public Board(Game game){
         this.setLayout(null);
         this.coins.setBounds(10,10,500, 30);
         this.coins.setFont(new Font("Arial", Font.PLAIN, 30));
         this.coins.setText("0");
         this.coins.setForeground(Color.lightGray);
-        icons[0] = new ImageIcon("src/com/company/img/buraki.png");
-        icons[1] = new ImageIcon("src/com/company/img/chicken.png");
-        icons[2] = new ImageIcon("src/com/company/img/tree.png");
-        icons[3] = new ImageIcon("src/com/company/img/cows.png");
+        icons[0] = new ImageIcon("src/main/java/com/company/img/buraki.png");
+        icons[1] = new ImageIcon("src/main/java/com/company/img/chicken.png");
+        icons[2] = new ImageIcon("src/main/java/com/company/img/tree.png");
+        icons[3] = new ImageIcon("src/main/java/com/company/img/cows.png");
 
         add(coins);
         this.game = game;
@@ -40,8 +46,6 @@ public class Board extends JPanel implements MouseListener {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        System.out.println(getWidth());
-        System.out.println(getHeight());
         g.fillRect(1,1,638,478);
         for(int i = 0; i< 4; i++){
             if(game.lines[i]>0)
@@ -60,39 +64,38 @@ public class Board extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("--------------------------");
 
-        for(int i = 0; i < 4; i++)
-        if(e.getY()>78+100*i && e.getY()< 78+100*i+98){
-            if(game.coins>game.price[i]){
-                game.lines[i]++;
-                game.coins -=  (int)game.price[i];
-                game.price[i] *= 1.1;
+        for(int i = 0; i < 4; i++) {
+            if ((e.getY() > 78 + 100 * i && e.getY() < 78 + 100 * i + 98) && (game.getCoins() > game.getPrice()[i])) {
+                    game.lines[i]++;
+                    game.setCoins( game.getCoins() - (int) game.getPrice()[i]);
+                    game.price[i] *= 1.1;
             }
         }
+        Logger logger = Logger.getLogger("info");
         for (int i =0; i< 4; i++)
-            System.out.print(game.lines[i] + " ");
+            logger.log(Level.INFO, " {0} ", new Object[] {game.lines[i] + " "});
         repaint();
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        // to implement
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        // to implement
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        // to implement
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        // to implement
     }
 }
 
