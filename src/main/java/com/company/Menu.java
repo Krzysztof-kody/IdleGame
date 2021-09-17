@@ -6,14 +6,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Menu extends JPanel implements MouseListener {
+    static final int WINDOW_WIDTH = 640;
+    static final int WINDOW_HEIGHT = 480;
 
     ImageIcon btn;
     private Game game;
     public Menu(Game game){
         this.game = game;
         btn = new ImageIcon("src/main/java/com/company/img/ig.png");
-
-        setSize(640, 480);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         addMouseListener(this);
     }
     @Override
