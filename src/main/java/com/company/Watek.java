@@ -1,14 +1,18 @@
 package com.company;
 
+
 import javax.swing.*;
 
 
-public class Watek extends Thread{
-     Game game;
+public class Watek implements Runnable{
+    Game game;
+    private boolean quit = false;
     public Watek(Game game){
         this.game = game;
     }
-
+    public void runAsThread(){
+        new Thread(this).start();
+    }
     public void windows(){
         if(!game.isMenuShow() && game.getWindow().getContentPane().getComponent(1).isVisible())
             game.getWindow().getContentPane().getComponent(1).setVisible(false);
@@ -23,7 +27,7 @@ public class Watek extends Thread{
     @Override
     public void run(){
             int sec = 0;
-            while (true) {
+            while (!quit) {
                 windows();
                 sec++;
                 if(game.isWizualizacja() && sec % 20 == 0)
@@ -42,7 +46,7 @@ public class Watek extends Thread{
                     ((Board)game.getWindow().getContentPane().getComponent(0)).getCounts()[i].setText(tmp);
                 }
                 try {
-                    sleep(50);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Thread.currentThread().interrupt();

@@ -25,10 +25,6 @@ public class Game implements Serializable {
         return coins;
     }
 
-    public int[] getLines() {
-        return lines;
-    }
-
     public double[] getPrice() {
         return price;
     }
@@ -68,7 +64,7 @@ public class Game implements Serializable {
         this.menuShow = true;
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Watek watek = new Watek(this);
-        watek.start();
+        watek.runAsThread();
     }
 
     public void setMenuShow(boolean menuShow) {
