@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class PasekTest {
     private Pasek pasek;
-
-
+    
     @BeforeEach
     void setUp() {
         pasek = new Pasek(100);
