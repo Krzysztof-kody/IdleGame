@@ -9,7 +9,7 @@ class PasekTest {
     
     @BeforeEach
     void setUp() {
-        pasek = new Pasek(100);
+        pasek = new Pasek(100, 50);
     }
 
     @Test
@@ -23,9 +23,14 @@ class PasekTest {
         executeBuy(100);
         Assertions.assertThat(pasek.getCounter()).isEqualTo(1);
     }
-
+    @Test
+    void shouldBeAvaible() {
+        pasek.turnOn();
+        Assertions.assertThat(pasek.getAvailble()).isTrue();
+    }
     private void executeBuy(int money) {
          Sakiewka sakiewka = new Sakiewka(money);
          pasek.buy(sakiewka);
     }
+
 }

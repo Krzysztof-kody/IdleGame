@@ -2,16 +2,33 @@ package com.company.domain;
 
 public class Pasek {
     private final int cost;
+    private final int gain;
     private int counter;
-    public Pasek(int cost) {
+    private boolean isAvaible;
+
+    public Pasek(int cost, int gain) {
         this.cost = cost;
+        this.gain = gain;
         this.counter = 0;
+        this.isAvaible = false;
     }
-    public void buy(Sakiewka sakiewka){
-        if(sakiewka.remove(cost)) {
+    public int getGain(){
+        return gain;
+    }
+    public void buy(Sakiewka sakiewka) {
+        if (sakiewka.remove(cost)) {
             counter++;
         }
     }
+
+    public void turnOn() {
+        isAvaible = true;
+    }
+
+    public boolean getAvailble() {
+        return isAvaible;
+    }
+
     public int getCounter() {
         return this.counter;
     }
