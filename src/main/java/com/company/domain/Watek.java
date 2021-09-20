@@ -5,20 +5,20 @@ public class Watek implements Runnable {
 
     private Gra gra;
 
-    Watek(){
-        gra = new Gra();
+    Watek(Gra gra) {
+        this.gra = gra;
     }
 
-    public void start(){
+    public void start() {
         new Thread(this).start();
     }
 
     @Override
     public void run() {
-        while(true){
-           gra.runda();
+        while (true) {
+            gra.runda();
             try {
-                wait(50);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

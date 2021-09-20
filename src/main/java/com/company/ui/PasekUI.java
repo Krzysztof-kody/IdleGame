@@ -14,10 +14,10 @@ public class PasekUI extends JPanel implements MouseListener {
     private boolean clicked = false;
     private final Image obrazek;
     private String text;
-    public void setText(String text){
-        this.text = text;
-    }
-    public PasekUI(Color color, Image icon) {
+    private GraApi graApi;
+    private int idPaska;
+
+    public PasekUI(Color color, Image icon, int idPaska, GraApi graApi) {
         this.setBackground(color);
         obrazek = icon;
         text = "0";
@@ -37,7 +37,7 @@ public class PasekUI extends JPanel implements MouseListener {
             g.drawImage(obrazek, 64 * j, 36, null);
         }
         g.setColor(Color.white);
-        g.drawString(text,5,15);
+        g.drawString(text, 5, 15);
     }
 
     public boolean isClicked() {

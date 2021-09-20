@@ -33,28 +33,27 @@ public class IdleGame {
 
     public IdleGame() {
         okno = new Window();
-        paski = new ArrayList<PasekUI>();
+        paski = new ArrayList<>();
         skarbonkaUI = new SkarbonkaUI();
         graApi = new GraApi();
         watekUI = new WatekUI(graApi, this);
     }
 
-    public Window getOkno(){
+    public Window getOkno() {
         return okno;
     }
 
-    public ArrayList<PasekUI> getPaski() {
+    public List<PasekUI> getPaski() {
         return paski;
     }
 
     public void createBoard() {
-        PasekUI pasek;
-        skarbonkaUI.setBounds(2,0,SkarbonkaUI.P_WIDTH, SkarbonkaUI.P_HEIGHT);
+        skarbonkaUI.setBounds(2, 0, SkarbonkaUI.P_WIDTH, SkarbonkaUI.P_HEIGHT);
         okno.add(skarbonkaUI);
-        int i=0;
-        for (Obrazki rodzaj: Obrazki.values()) {
-            paski.add( new PasekUI(Color.black, IconLoader.loadImage(rodzaj.name())));
-            paski.get(i).setBounds(2,100+100*i, PasekUI.P_WIDTH,PasekUI.P_HEIGHT);
+        int i = 0;
+        for (Obrazki rodzaj : Obrazki.values()) {
+            paski.add(new PasekUI(Color.black, IconLoader.loadImage(rodzaj.name()),i,graApi));
+            paski.get(i).setBounds(2, 100 + 100 * i, PasekUI.P_WIDTH, PasekUI.P_HEIGHT);
             okno.add(paski.get(i));
             i++;
         }
