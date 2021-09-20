@@ -1,5 +1,7 @@
 package com.company.ui;
 
+import com.company.dto.SakiewkaDTO;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -25,4 +27,8 @@ public class SkarbonkaUI extends JPanel {
         g.drawString(text,5,15);
     }
 
+    public void setStatus(SakiewkaDTO sakiewka) {
+        text = String.valueOf(sakiewka.getKwota());
+        repaint();
+    }
 }

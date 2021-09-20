@@ -1,6 +1,5 @@
-package com.company.app;
+package com.company.domain;
 
-import com.company.domain.Gra;
 
 public class Watek implements Runnable {
 

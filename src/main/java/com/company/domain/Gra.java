@@ -19,8 +19,8 @@ public class Gra {
         }
     }
 
-    public Sakiewka getSkarbonka() {
-        return skarbonka;
+    public Sakiewka getSakiewka() {
+        return sakiewka;
     }
 
     public Pasek[] getPaski() {

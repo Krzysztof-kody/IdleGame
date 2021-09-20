@@ -9,7 +9,7 @@ public class Pasek {
     public Pasek(int cost, int gain) {
         this.cost = cost;
         this.gain = gain;
-        this.counter = 0;
+        this.counter = 1;
         this.isAvaible = false;
     }
     public int getGain(){
@@ -31,5 +31,9 @@ public class Pasek {
 
     public int getCounter() {
         return this.counter;
+    }
+
+    public int getCena() {
+        return cost;
     }
 }

@@ -1,16 +1,33 @@
 package com.company.ui;
 
+import com.company.domain.GraApi;
+import com.company.dto.GraDTO;
+import com.company.dto.PasekDTO;
 import com.company.loaders.IconLoader;
 import com.company.ui.PasekUI;
 import com.company.ui.Window;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
+
+// dodaj wątek, odświeżanie widoku
+// pobiera informacje z GraApi
 
 public class IdleGame {
     private Window okno;
-    private ArrayList<PasekUI> paski;
+    private List<PasekUI> paski;
     private SkarbonkaUI skarbonkaUI;
+    private GraApi graApi;
+    private final WatekUI watekUI;
+
+    public void setStatus(GraDTO status) {
+        for (int i = 0; i < status.getPaski().size(); i++) {
+            this.paski.get(i).setStatus(status.getPaski().get(i));
+        }
+        skarbonkaUI.setStatus(status.getSakiewka());
+    }
+
     public enum Obrazki {buraki, chicken, cows, tree}
 
 
@@ -18,6 +35,8 @@ public class IdleGame {
         okno = new Window();
         paski = new ArrayList<PasekUI>();
         skarbonkaUI = new SkarbonkaUI();
+        graApi = new GraApi();
+        watekUI = new WatekUI(graApi, this);
     }
 
     public Window getOkno(){
@@ -43,6 +62,8 @@ public class IdleGame {
 
     public void start() {
         okno.changeVisible();
+        watekUI.start();
+
     }
 
 }

@@ -1,16 +1,18 @@
 package com.company.ui;
 
+import com.company.domain.GraApi;
+import com.company.dto.PasekDTO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class PasekUI extends JPanel implements MouseListener {
+    static final int P_WIDTH = 636;
+    static final int P_HEIGHT = 98;
     private boolean clicked = false;
-    final static int P_WIDTH = 636;
-    final static int P_HEIGHT = 98;
-
-    private Image obrazek;
+    private final Image obrazek;
     private String text;
     public void setText(String text){
         this.text = text;
@@ -19,6 +21,13 @@ public class PasekUI extends JPanel implements MouseListener {
         this.setBackground(color);
         obrazek = icon;
         text = "0";
+        this.graApi = graApi;
+        this.idPaska = idPaska;
+        addMouseListener(this);
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     @Override
@@ -38,6 +47,7 @@ public class PasekUI extends JPanel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         clicked = true;
+        graApi.kup(idPaska,1);
     }
 
     @Override
@@ -58,5 +68,10 @@ public class PasekUI extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         // to musi tu być
+    }
+
+    public void setStatus(PasekDTO pasekDTO) {
+        text = String.valueOf(pasekDTO.getIlosc());
+        repaint();
     }
 }
