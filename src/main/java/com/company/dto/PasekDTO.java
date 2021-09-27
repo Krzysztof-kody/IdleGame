@@ -1,5 +1,6 @@
 package com.company.dto;
 
+import com.company.domain.KosztPaska;
 import com.company.domain.Pasek;
 import com.company.domain.Sakiewka;
 import lombok.Data;
@@ -7,7 +8,7 @@ import lombok.Data;
 @Data
 public class PasekDTO {
     private int ilosc;
-    private int cena;
+    private KosztPaska cena;
 
     public static PasekDTO createNew(Pasek pasek) {
         PasekDTO pasekDTO = new PasekDTO();

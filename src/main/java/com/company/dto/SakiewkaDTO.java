@@ -7,11 +7,19 @@ import lombok.Data;
 @Data
 public class SakiewkaDTO {
     private int kwota;
+    private int buraki;
+    private int kury;
+    private int krowy;
+    private int drzewa;
 
     public static SakiewkaDTO createNew(Sakiewka sakiewka){
 
         SakiewkaDTO sakiewkaDTO = new SakiewkaDTO();
-        sakiewkaDTO.kwota = sakiewka.get();
+        sakiewkaDTO.kwota = sakiewka.getMoney();
+        sakiewkaDTO.buraki = sakiewka.getBuraki();
+        sakiewkaDTO.kury = sakiewka.getKury();
+        sakiewkaDTO.krowy = sakiewka.getKrowy();
+        sakiewkaDTO.drzewa = sakiewka.getDrzewa();
         return sakiewkaDTO;
     }
 

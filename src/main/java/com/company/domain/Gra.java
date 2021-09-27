@@ -46,8 +46,9 @@ public class Gra {
         return paski;
     }
 
-    public void kup(int nrPaska) {
-        paski[nrPaska].buy(sakiewka);
+    public boolean kup(int nrPaska) {
+        return paski[nrPaska].buy(sakiewka);
+
     }
 
     public GraDTO getStatus() {

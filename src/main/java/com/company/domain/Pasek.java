@@ -1,7 +1,7 @@
 package com.company.domain;
 
 public class Pasek {
-    private final int cost;
+    private final KosztPaska cost;
     private final int gain;
     private int counter;
     private boolean isAvaible;
@@ -15,10 +15,12 @@ public class Pasek {
     public int getGain(){
         return gain;
     }
-    public void buy(Sakiewka sakiewka) {
+    public boolean buy(Sakiewka sakiewka) {
         if (sakiewka.remove(cost)) {
             counter++;
+            return true;
         }
+        return false;
     }
 
     public void turnOn() {
@@ -33,7 +35,7 @@ public class Pasek {
         return this.counter;
     }
 
-    public int getCena() {
+    public KosztPaska getCena() {
         return cost;
     }
 }
