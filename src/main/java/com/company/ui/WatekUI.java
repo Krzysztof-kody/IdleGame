@@ -1,10 +1,12 @@
 package com.company.ui;
 
 import com.company.domain.GraApi;
+import org.springframework.stereotype.Service;
 
 public class WatekUI implements Runnable {
-    private GraApi graApi;
-    private IdleGame idleGame;
+
+    private final GraApi graApi;
+    private final IdleGame idleGame;
 
     public WatekUI(GraApi graApi, IdleGame idleGame) {
         this.graApi = graApi;

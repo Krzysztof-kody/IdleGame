@@ -1,15 +1,24 @@
 package com.company.domain;
 
 import com.company.dto.GraDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GraApi {
 
-    public void kup(int nrPaska, long idGra){
-          Gra.getInstance(idGra).kup(nrPaska);
+    private final GraRepository repository;
+
+    public GraApi(GraRepository repository) {
+        this.repository = repository;
     }
 
-    public GraDTO getStatus(long idGra){
-        return Gra.getInstance(idGra).getStatus();
+
+    public void kup(int nrPaska, long idGra) {
+        repository.getGra(idGra).kup(nrPaska);
+    }
+
+    public GraDTO getStatus(long idGra) {
+        return repository.getGra(idGra).getStatus();
     }
 
     // get_status

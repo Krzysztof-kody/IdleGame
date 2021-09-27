@@ -2,10 +2,7 @@ package com.company.ui;
 
 import com.company.domain.GraApi;
 import com.company.dto.GraDTO;
-import com.company.dto.PasekDTO;
 import com.company.loaders.IconLoader;
-import com.company.ui.PasekUI;
-import com.company.ui.Window;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -31,11 +28,11 @@ public class IdleGame {
     public enum Obrazki {buraki, chicken, cows, tree}
 
 
-    public IdleGame() {
+    public IdleGame(GraApi graApi) {
         okno = new Window();
         paski = new ArrayList<>();
         skarbonkaUI = new SkarbonkaUI();
-        graApi = new GraApi();
+        this.graApi = graApi;
         watekUI = new WatekUI(graApi, this);
     }
 
@@ -52,7 +49,7 @@ public class IdleGame {
         okno.add(skarbonkaUI);
         int i = 0;
         for (Obrazki rodzaj : Obrazki.values()) {
-            paski.add(new PasekUI(Color.black, IconLoader.loadImage(rodzaj.name()),i,graApi));
+            paski.add(new PasekUI(Color.black, IconLoader.loadImage(rodzaj.name()), i, graApi));
             paski.get(i).setBounds(2, 100 + 100 * i, PasekUI.P_WIDTH, PasekUI.P_HEIGHT);
             okno.add(paski.get(i));
             i++;

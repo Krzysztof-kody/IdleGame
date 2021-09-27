@@ -2,13 +2,10 @@ package com.company.domain;
 
 import com.company.dto.GraDTO;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Gra {
     private final Pasek[] paski;
     private final Sakiewka sakiewka;
-    private static final Map<Long, Gra> graMapa = new HashMap<>();
+
 
     public Gra() {
         paski = new Pasek[4];
@@ -20,17 +17,6 @@ public class Gra {
         sakiewka.add(1);
     }
 
-
-    public static Gra getInstance(long idGra) {
-        return graMapa.computeIfAbsent(idGra, Gra::nowa );
-    }
-
-    private static Gra nowa(long id ){
-        Gra gra = new Gra();
-        new Watek(gra).start();
-
-        return gra;
-    }
 
     public void runda() {
         for (int i = 0; i < 4; i++) {
