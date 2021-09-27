@@ -12,10 +12,10 @@ public class Gra {
 
     public Gra() {
         paski = new Pasek[4];
-        paski[0] = new Pasek(1, 1);
-        paski[1] = new Pasek(10, 2);
-        paski[2] = new Pasek(100, 3);
-        paski[3] = new Pasek(1000, 5);
+        paski[0] = new Pasek(KosztPaska.builder().pieniadze(1).build(), 1);
+        paski[1] = new Pasek(KosztPaska.builder().pieniadze(10).build(), 2);
+        paski[2] = new Pasek(KosztPaska.builder().pieniadze(100).build(), 3);
+        paski[3] = new Pasek(KosztPaska.builder().pieniadze(1000).build(), 5);
         sakiewka = new Sakiewka();
         sakiewka.add(1);
     }

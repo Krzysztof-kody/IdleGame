@@ -6,7 +6,7 @@ public class Pasek {
     private int counter;
     private boolean isAvaible;
 
-    public Pasek(int cost, int gain) {
+    public Pasek(KosztPaska cost, int gain) {
         this.cost = cost;
         this.gain = gain;
         this.counter = 1;
