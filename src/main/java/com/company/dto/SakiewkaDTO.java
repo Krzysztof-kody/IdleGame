@@ -15,7 +15,8 @@ public class SakiewkaDTO {
     public static SakiewkaDTO createNew(Sakiewka sakiewka){
 
         SakiewkaDTO sakiewkaDTO = new SakiewkaDTO();
-        sakiewkaDTO.kwota = sakiewka.getMoney();
+        //TODO zmienić tak jak poniżej
+        sakiewkaDTO.kwota = sakiewka.get().pieniadze();
         sakiewkaDTO.buraki = sakiewka.getBuraki();
         sakiewkaDTO.kury = sakiewka.getKury();
         sakiewkaDTO.krowy = sakiewka.getKrowy();
