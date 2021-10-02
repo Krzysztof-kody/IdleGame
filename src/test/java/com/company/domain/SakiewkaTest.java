@@ -15,24 +15,24 @@ class SakiewkaTest {
 
     @Test
     void shouldBeZeroOnInit() {
-        Assertions.assertThat(sakiewka.get()).isZero();
+        Assertions.assertThat(sakiewka.get().pieniadze()).isZero();
     }
 
     @Test
     void shouldCanBeLessThenZero() {
-        Assertions.assertThat(sakiewka.remove(10)).isFalse();
-        Assertions.assertThat(sakiewka.get()).isZero();
+        Assertions.assertThat(sakiewka.remove(Pieniadze.builder().pieniadze(10).build())).isFalse();
+        Assertions.assertThat(sakiewka.get().pieniadze()).isZero();
     }
 
     @Test
     void shouldAddValue() {
-        sakiewka.add(10);
-        Assertions.assertThat(sakiewka.get()).isEqualTo(10);
+        sakiewka.add(Pieniadze.builder().pieniadze(10).build());
+        Assertions.assertThat(sakiewka.get().pieniadze()).isEqualTo(10);
     }
     @Test
     void shouldBeSix() {
-        sakiewka.add(10);
-        sakiewka.remove(4);
-        Assertions.assertThat(sakiewka.get()).isEqualTo(6);
+        sakiewka.add(Pieniadze.builder().pieniadze(10).build());
+        sakiewka.remove(Pieniadze.builder().pieniadze(4).build());
+        Assertions.assertThat(sakiewka.get().pieniadze()).isEqualTo(6);
     }
 }

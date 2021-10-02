@@ -7,7 +7,15 @@ import com.company.ui.IdleGame;
 // koszt via obiekt
 // zakupy przez obiekt
 // sakiewka poszerzony obiekt
-// testy - createNew, domena cała,
+
+
+// sobota
+// TODO testy - createNew, domena cała,
+// TODO żeby dany pasek generował odpowiedni zasób i by kosztowały dane zasoby
+// TODO gain ma być pieniądzem
+// TODO spring
+// TODO zastanowiś cię jak wywalić wątek
+// TODO https://spring.io/quickstart
 
 public class Main {
 

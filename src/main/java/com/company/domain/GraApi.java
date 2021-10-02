@@ -1,6 +1,7 @@
 package com.company.domain;
 
 import com.company.dto.GraDTO;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component

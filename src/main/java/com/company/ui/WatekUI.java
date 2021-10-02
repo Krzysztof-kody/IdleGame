@@ -3,6 +3,8 @@ package com.company.ui;
 import com.company.domain.GraApi;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 public class WatekUI implements Runnable {
 
     private final GraApi graApi;

@@ -9,7 +9,7 @@ class PasekTest {
     
     @BeforeEach
     void setUp() {
-        pasek = new Pasek(100, 50);
+        pasek = new Pasek(Pieniadze.builder().pieniadze(100),50);
     }
 
     @Test

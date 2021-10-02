@@ -1,15 +1,15 @@
 package com.company.domain;
 
 public class Pasek {
-    private final KosztPaska cost;
+    private final Pieniadze cost;
     private final int gain;
     private int counter;
     private boolean isAvaible;
 
-    public Pasek(KosztPaska cost, int gain) {
+    public Pasek(Pieniadze cost, int gain) {
         this.cost = cost;
         this.gain = gain;
-        this.counter = 1;
+        this.counter = 0;
         this.isAvaible = false;
     }
     public int getGain(){
@@ -35,7 +35,7 @@ public class Pasek {
         return this.counter;
     }
 
-    public KosztPaska getCena() {
+    public Pieniadze getCena() {
         return cost;
     }
 }
